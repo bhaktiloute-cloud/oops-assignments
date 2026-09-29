@@ -1,0 +1,71 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Book 
+{
+private:
+    string title;
+    string author;
+    double price;
+
+public:
+
+    void setDetails(string bTitle, string bAuthor, double bPrice) 
+    {
+        title = bTitle;
+        author = bAuthor;
+        price = bPrice;
+    }
+
+
+    void displayInfo() const 
+    {
+        cout << "Title: " << title << "\n"
+             << "Author: " << author << "\n"
+             << "Price: $" << price << "\n"
+             << "--------------------\n";
+    }
+};
+
+int main() 
+{
+    int numBooks;
+
+    cout << "Enter number of books to record: ";
+    cin >> numBooks;
+
+    
+    Book* libraryList = new Book[numBooks];
+
+    for (int i = 0; i < numBooks; i++) 
+    {
+        string title, author;
+        double price;
+
+        cout << "\nEnter details for Book " << i + 1 << ":\n";
+        cin.ignore(); 
+
+        cout << "Enter Title: ";
+        getline(cin, title);
+
+        cout << "Enter Author: ";
+        getline(cin, author);
+
+        cout << "Enter Price: ";
+        cin >> price;
+
+        libraryList[i].setDetails(title, author, price);
+    }
+
+    cout << "\n--- Stored Book Records ---\n";
+    for (int i = 0; i < numBooks; i++) 
+    {
+        libraryList[i].displayInfo();
+    }
+
+    
+    delete[] libraryList;
+
+    return 0;
