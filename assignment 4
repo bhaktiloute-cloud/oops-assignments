@@ -57,3 +57,18 @@ int main()
 
     return 0;
 }
+
+output:
+First Book Details:
+BookID: 101
+Title: C++ Programming
+Author: nikita
+Price: 500
+--------------
+Second Book Details:
+BookID: 102
+Title: Mastering C++
+Author: Bhakti
+Price: 150
+--------------
+
