@@ -31,3 +31,9 @@ int main()
     s1.display();
     return 0;
 }
+
+output:
+rollNumber:101
+name:anjali
+course:computer science
+
