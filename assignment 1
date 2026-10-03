@@ -69,3 +69,28 @@ int main()
     delete[] libraryList;
 
     return 0;
+}
+
+output:
+Enter number of books to record: 2
+
+Enter details for Book 1:
+Enter Title: good girl guids to murder
+Enter Author: holly jackson 
+Enter Price: 399
+
+Enter details for Book 2:
+Enter Title: good girl bad blood 
+Enter Author: holly jackson
+Enter Price: 299
+
+--- Stored Book Records ---
+Title: good girl guids to murder
+Author: holly jackson 
+Price: $399
+--------------------
+Title: good girl bad blood 
+Author: holly jackson
+Price: $299
+--------------------
+
