@@ -95,3 +95,34 @@ int main()
     delete[] staffList; 
 
     return 0;
+}
+
+output:
+Enter number of employees: 2
+
+Enter details for Employee 1:
+Enter ID: 23
+Enter Name: Bhakti
+Enter Department: SOAI
+Enter Salary: 1000
+
+Enter details for Employee 2:
+Enter ID: 56
+Enter Name: nikita
+Enter Department: SOAI
+Enter Salary: 2000
+
+Are you authorized to view employee records? (1 = Yes, 0 = No): 1
+
+--- Employee Records ---
+ID: 23
+Name: Bhakti
+Department: SOAI
+Salary: $1000
+--------------------
+ID: 56
+Name: nikita
+Department: SOAI
+Salary: $2000
+--------------------
+
