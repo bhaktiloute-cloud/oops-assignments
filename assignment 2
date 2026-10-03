@@ -71,3 +71,36 @@ int main()
 
     return 0;
 }
+
+output:
+Enter number of students: 3
+
+Enter details for Student 1:
+Enter ID: 76
+Enter Name: Bhakti Prashant Loute
+Enter Grade: 11
+
+Enter details for Student 2:
+Enter ID: 67
+Enter Name: Tanmay prashant loute
+Enter Grade: 12
+
+Enter details for Student 3:
+Enter ID: 89
+Enter Name: shreya mangesh loute
+Enter Grade: 11
+
+--- Student Records (Administrative View) ---
+ID: 76
+Name: Bhakti Prashant Loute
+Grade: 11
+--------------------
+ID: 67
+Name: Tanmay prashant loute
+Grade: 12
+--------------------
+ID: 89
+Name: shreya mangesh loute
+Grade: 11
+--------------------
+
