@@ -72,25 +72,17 @@ int main()
 }
 
 output:
-Enter number of books to record: 2
+Enter number of books to record: 1
 
 Enter details for Book 1:
-Enter Title: good girl guids to murder
+Enter Title: a good girl murder 
 Enter Author: holly jackson 
-Enter Price: 399
-
-Enter details for Book 2:
-Enter Title: good girl bad blood 
-Enter Author: holly jackson
-Enter Price: 299
+Enter Price: 200
 
 --- Stored Book Records ---
-Title: good girl guids to murder
+Title: a good girl murder 
 Author: holly jackson 
-Price: $399
+Price: $200
 --------------------
-Title: good girl bad blood 
-Author: holly jackson
-Price: $299
---------------------
+
 
