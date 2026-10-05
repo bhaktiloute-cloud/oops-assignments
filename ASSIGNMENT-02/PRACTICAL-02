@@ -1,0 +1,73 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Student 
+{
+private:
+    int id;
+    string name;
+    string grade;
+
+public:
+    
+    void setDetails(int studentId, string studentName, string studentGrade) 
+    {
+        id = studentId;
+        name = studentName;
+        grade = studentGrade;
+    }
+
+    
+    void displayInfo() const 
+    {
+        cout << "ID: " << id << "\n"
+             << "Name: " << name << "\n"
+             << "Grade: " << grade << "\n"
+             << "--------------------\n";
+    }
+};
+
+int main() 
+{
+    int numStudents;
+
+    cout << "Enter number of students: ";
+    cin >> numStudents;
+
+    
+    Student* studentList = new Student[numStudents];
+
+    for (int i = 0; i < numStudents; i++) 
+    {
+        int id;
+        string name, grade;
+
+        cout << "\nEnter details for Student " << i + 1 << ":\n";
+
+        cout << "Enter ID: ";
+        cin >> id;
+
+        cin.ignore(); 
+
+        cout << "Enter Name: ";
+        getline(cin, name);
+
+        cout << "Enter Grade: ";
+        getline(cin, grade);
+
+        studentList[i].setDetails(id, name, grade);
+    }
+
+    cout << "\n--- Student Records (Administrative View) ---\n";
+    for (int i = 0; i < numStudents; i++) 
+    {
+        studentList[i].displayInfo();
+    }
+
+    
+    delete[] studentList;
+
+    return 0;
+}
