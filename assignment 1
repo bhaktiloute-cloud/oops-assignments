@@ -14,7 +14,7 @@ public:
 
     void setDetails(string bTitle, string bAuthor, double bPrice) 
     {
-        title = bTitle;
+        title = Title;
         author = bAuthor;
         price = bPrice;
     }
