@@ -1,98 +1,52 @@
-#include <iostream>
-#include <string>
+#include<iostream>
+#include<string>
 
 using namespace std;
 
 class Employee
 {
-private:
+    private:
     int id;
     string name;
     string department;
     double salary;
 
-public:
-    void setDetails(int empId, string empName, string empDept, double empSal)
+    public:
+    void setDetails(int empid,string empname,string empdept,double empsal)
     {
-        id = empId;
-        name = empName;
-        department = empDept;
-        salary = empSal;
+        id=empid;
+        name=empname;
+        department=empdept;
+        salary=empsal;
     }
 
-    void displayInfo(bool authorized) const
+    void displayinfo(bool authorized)const
     {
-        if (authorized)
+        if(authorized)
         {
-            cout << "ID: " << id << "\n"
-                 << "Name: " << name << "\n"
-                 << "Department: " << department << "\n"
-                 << "Salary: $" << salary << "\n"
-                 << "--------------------\n";
+            cout<<"ID:"<<id<<"\n"<<"name:"<<name<<"\n"<<"department:"<<department<<"\n"<<"------------------\n";
         }
         else
         {
-            cout << "Access Denied: You are not authorized to view this record.\n";
+            cout<<"access denied:you are not authorized to view this record\n";
         }
     }
 };
 
 int main()
 {
-    int numEmployees;
+    const int MAX_EMPLOYEES=2;
+    Employee staffList[MAX_EMPLOYEES];
 
-    cout << "Enter number of employees: ";
-    cin >> numEmployees;
+    staffList[0].setDetails(101,"alice smith","HR",55000.0);
+    staffList[1].setDetails(102,"bob jones","engineering",75000.0);
 
-    
-    Employee* staffList = new Employee[numEmployees]; 
+    bool isAuthorizedHR=true;
 
-    for (int i = 0; i < numEmployees; i++)
+    cout<<"---Employee records(HR view)---\n";
+    for (int i=0;i<MAX_EMPLOYEES;i++)
     {
-        int id;
-        string name, department;
-        double salary;
-
-        cout << "\nEnter details for Employee " << i + 1 << ":\n";
-
-        cout << "Enter ID: ";
-        cin >> id;
-
-        cin.ignore(); // Correctly clears the newline buffer
-
-        cout << "Enter Name: ";
-        getline(cin, name);
-
-        cout << "Enter Department: ";
-        getline(cin, department);
-
-        cout << "Enter Salary: ";
-        cin >> salary;
-
-        staffList[i].setDetails(id, name, department, salary);
+        staffList[i].displayinfo(isAuthorizedHR);
     }
-
-    bool isAuthorizedHR;
-
-    cout << "\nAre you authorized to view employee records? (1 = Yes, 0 = No): ";
-    cin >> isAuthorizedHR;
-
-    cout << "\n--- Employee Records ---\n";
-
-    if (!isAuthorizedHR) 
-    {
-        cout << "Access Denied: You are not authorized to view these records.\n";
-    } 
-    else 
-    {
-        for (int i = 0; i < numEmployees; i++)
-        {
-            staffList[i].displayInfo(isAuthorizedHR);
-        }
-    }
-
-    // Free the dynamically allocated memory to prevent memory leaks
-    delete[] staffList; 
-
     return 0;
 }
