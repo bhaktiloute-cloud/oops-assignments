@@ -1,1 +1,118 @@
+#include<iostream>
+#include<fstream>
+#include<string>
+using namespace std;
 
+class Employee
+{
+    int id;
+    string name;
+    string department;
+    float salary;
+
+public:
+
+    // Record employee details
+    void recordDetails()
+    {
+        cout<<"Enter Employee ID: ";
+        cin>>id;
+
+        cin.ignore();
+
+        cout<<"Enter Employee Name: ";
+        getline(cin,name);
+
+        cout<<"Enter Department: ";
+        getline(cin,department);
+
+        cout<<"Enter Salary: ";
+        cin>>salary;
+
+        // Write details into file
+        ofstream fout("employee.txt", ios::app);
+
+        fout<<id<<endl;
+        fout<<name<<endl;
+        fout<<department<<endl;
+        fout<<salary<<endl;
+
+        fout.close();
+
+        cout<<"Employee record saved successfully!\n";
+    }
+
+    // Display employee details
+    void displayDetails()
+    {
+        ifstream fin("employee.txt");
+
+        if(!fin)
+        {
+            cout<<"File not found!\n";
+            return;
+        }
+
+        int empId;
+        string empName, empDept;
+        float empSalary;
+
+        cout<<"\n--- Employee Records ---\n";
+
+        while(fin>>empId)
+        {
+            fin.ignore();
+
+            getline(fin,empName);
+            getline(fin,empDept);
+            fin>>empSalary;
+            fin.ignore();
+
+            cout<<"\nEmployee ID: "<<empId<<endl;
+            cout<<"Name: "<<empName<<endl;
+            cout<<"Department: "<<empDept<<endl;
+            cout<<"Salary: "<<empSalary<<endl;
+            cout<<"----------------------\n";
+        }
+
+        fin.close();
+    }
+};
+
+int main()
+{
+    Employee e;
+    int choice;
+
+    do
+    {
+        cout<<"\n===== EMPLOYEE MANAGEMENT SYSTEM =====\n";
+        cout<<"1. Record Employee Details\n";
+        cout<<"2. Display Employee Details\n";
+        cout<<"3. Exit\n";
+
+        cout<<"Enter your choice: ";
+        cin>>choice;
+
+        switch(choice)
+        {
+            case 1:
+                e.recordDetails();
+                break;
+
+            case 2:
+                e.displayDetails();
+                break;
+
+            case 3:
+                cout<<"Exiting program...\n";
+                break;
+
+            default:
+                cout<<"Invalid choice!\n";
+        }
+
+    }while(choice!=3);
+
+    return 0;
+}
